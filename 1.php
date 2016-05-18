@@ -5,7 +5,7 @@
   </head>
   <body>
     <h2>Ajouter un artiste</h2>
-    <form method="get" action="1.php">
+    <form method="get" action="artiste.php">
       Nom:
       <br>
       <input type="text" name="nom">
@@ -19,20 +19,6 @@
       <input type="text" name="annee">
       <br>
       <input type="submit" name="Envoyer"/>
-      <?php
-        if(isset($_GET)){
-          extract($_GET);
-          $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","ludo1811","carlu");
-          if(!$link) die("pb");
-          else{
-            $resultat=mysqli_query($link,"Insert into Artiste(nom,prenom,anneeNaiss) values ('".$nom."','".$prenom."','".$annee."');");
-            if($resultat)
-              echo"Insertion reussie";
-            else
-              echo"Echec";
-          }
-        } 
-      ?>
     </form>
      <h2>
        Artistes
@@ -45,6 +31,7 @@
           </tr>
         </thead>
         <?php
+          $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","ludo1811","carlu");
           $resultat=mysqli_query($link,"SELECT nom,prenom,anneeNaiss FROM Artiste");
 
           if($resultat){
