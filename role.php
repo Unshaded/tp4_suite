@@ -9,6 +9,7 @@
               echo"Insertion reussie";
             else
               echo"Echec";
+            
           }
         } 
       ?>
