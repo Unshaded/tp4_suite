@@ -37,7 +37,7 @@
       <input type="submit" name="Envoyer"/>
     </form>
      <h2>
-       Roles
+       Roles:
       </h2>
       <table>
         <thead>
