@@ -12,12 +12,11 @@
       <br>
       Acteur:
       <br>
-      <input type="text" name="acteur">
       <select name="acteur">
           <?php
             $link = mysqli_connect("dwarves.iut-fbleau.fr","carlu","ludo1811","carlu");
             if(!$link) die("pb");
-              $resultat=mysqli_query($link,"SELECT Distinct nom,prenom From Artiste Join Film On(idArtiste != idMes);");
+              $resultat=mysqli_query($link,"SELECT Distinct nom,prenom,idArtiste From Artiste Join Film On(idArtiste != idMes);");
               while($artiste=mysqli_fetch_object($resultat)){
                 echo"<option value=".$artiste->idArtiste.">".$artiste->nom." ".$artiste->prenom."</option>";
               }
